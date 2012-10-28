@@ -1,0 +1,14 @@
+{ 
+	"StartRoom": "throne_room",
+	"Rooms": [
+		{
+			"name": "throne_room",
+			"s_to": "outside_castle",
+			"desc": "You are in the majestic throne room of King Arthur. Woop."
+		}, { 
+			"name": "outside_castle",
+			"n_to": "throne_room",
+			"desc": "You stand outside the castle of King Arthur. Double woop."
+		}
+	]
+}
