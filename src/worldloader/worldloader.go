@@ -37,5 +37,20 @@ func LoadWorld() *world.GameWorld {
 
 func buildRoomMap(data JsonGameData) map[string]*world.Room {
 	r := make(map[string]*world.Room)
+
+	// Loop once to create all the rooms
+	for _, room := range data.Rooms {
+		r[room.Name] = &world.Room{Desc: room.Desc}
+	}
+
+	// Loop again to link up rooms through directions
+	for _, room := range data.Rooms {
+		var cur = r[room.Name]
+		cur.N = r[room.N_to]
+		cur.E = r[room.E_to]
+		cur.S = r[room.S_to]
+		cur.W = r[room.W_to]
+	}
+
 	return r
 }

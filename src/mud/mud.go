@@ -25,6 +25,11 @@ func StartConnection(c net.Conn) {
 	mc.PrintLine("What is your name?")
 	name := mc.ReadLine()
 	mc.PrintLine("Welcome %s", name)
+	curRoom := gameData.StartRoom
+	mc.PrintLine(curRoom.Desc)
+	mc.PrintLine("You go south")
+	curRoom = curRoom.S
+	mc.PrintLine(curRoom.Desc)
 }
 
 func (c MudConnection) ReadLine() string {
